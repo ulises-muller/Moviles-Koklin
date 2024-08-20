@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -27,6 +28,23 @@ class MainActivity : AppCompatActivity() {
         et2 = findViewById(R.id.et2)
         txView = findViewById(R.id.txView)
 
+        enter.setOnClickListener {
 
+            if (et1.text != null){
+                var num1 : Int = et1.text.toString().toInt()
+            } else {
+                Toast.makeText(this, "Enter a number", Toast.LENGTH_SHORT).show()
+            if (et2.text != null){
+                var num2 : Int = et2.text.toString().toInt()
+            } else {
+                Toast.makeText(this, "Enter a number", Toast.LENGTH_SHORT).show()
+            }
+            }
+
+            val num1 : Int = et1.text.toString().toInt()
+            val num2 : Int = et2.text.toString().toInt()
+            val suma = num1 + num2
+            txView.text = suma.toString()
+        }
     }
 }
