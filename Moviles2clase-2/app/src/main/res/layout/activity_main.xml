@@ -10,10 +10,10 @@
     <EditText
         android:id="@+id/et1"
         android:layout_width="145dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:ems="10"
-        android:inputType="number"
         android:hint="Num 1"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.161"
@@ -24,10 +24,10 @@
     <EditText
         android:id="@+id/et2"
         android:layout_width="140dp"
-        android:layout_height="44dp"
+        android:layout_height="48dp"
         android:ems="10"
-        android:inputType="number"
         android:hint="Num 2"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.822"
@@ -55,5 +55,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/operacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Operacion"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.106" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

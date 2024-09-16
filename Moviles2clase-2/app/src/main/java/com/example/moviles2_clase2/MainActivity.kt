@@ -2,22 +2,20 @@ package com.example.moviles2_clase2
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class MainActivity :       AppCompatActivity() {
     private lateinit var et1 : EditText
     private lateinit var et2 : EditText
     private lateinit var txView: TextView
     private lateinit var enter : Button
-    @SuppressLint("MissingInflatedId")
+    private lateinit var getOperacion : EditText
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,24 +25,24 @@ class MainActivity : AppCompatActivity() {
         et1 = findViewById(R.id.et1)
         et2 = findViewById(R.id.et2)
         txView = findViewById(R.id.txView)
+        getOperacion = findViewById(R.id.operacion)
 
         enter.setOnClickListener {
-
-            if (et1.text != null){
-                var num1 : Int = et1.text.toString().toInt()
+            if (et1.text.isBlank() || et2.text.isBlank() || getOperacion.text.isBlank()) {
+                Toast.makeText(this, "Agrega alguno numero viste", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Enter a number", Toast.LENGTH_SHORT).show()
-            if (et2.text != null){
-                var num2 : Int = et2.text.toString().toInt()
-            } else {
-                Toast.makeText(this, "Enter a number", Toast.LENGTH_SHORT).show()
+                var resultado = Calcular(et1.text.toString().toDouble(), et2.text.toString().toDouble(), getOperacion.text.toString())
+                txView.text = resultado.toString()
             }
-            }
-
-            val num1 : Int = et1.text.toString().toInt()
-            val num2 : Int = et2.text.toString().toInt()
-            val suma = num1 + num2
-            txView.text = suma.toString()
+        }
+    }
+    private fun Calcular(a: Double, b: Double, operacion : String) : Double {
+        return when(operacion){
+            "suma" -> a + b
+            "resta" -> a - b
+            "multiplicacion" -> a * b
+            "division" -> a / b
+            else -> throw IllegalArgumentException("Operacion no valida")
         }
     }
 }
